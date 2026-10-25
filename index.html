@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Qt Contributors' Summit 2026 - Programming languages in the Qt Ecosystem: beyond Qt Bridges</title>
+
+  <link rel="stylesheet" href="reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+  <!-- Theme: base skeleton first, then one theme file that overrides its variables -->
+  <link rel="stylesheet" href="css/base-theme.css">
+  <link rel="stylesheet" href="css/qt-theme.css">
+  <!-- Deck styles: palette, layout, components, utilities -->
+  <link rel="stylesheet" href="css/slides.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="reveal.js/dist/plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<!-- ============================================================
+     COVER
+     ============================================================ -->
+<section data-no-header data-transition="fade-in fade-out" class="full-slide" data-background-image="img/background_cover.svg">
+  <div class="columns c60-40 v-center">
+   <div>
+    <h2>Programming languages in the Qt Ecosystem:</h2>
+    <h2 class="qt-lemon">beyond Qt Bridges</h2>
+    <hr class="line"/>
+    <h4><i class="qt-neon w300">Cristián</i></h4>
+    <h5 class="w400">maureira.dev</h5>
+    <br/>
+    <h5 class="w400">@cmaureir<br>
+      <img class="clean-img" src="img/bluesky.webp">
+      <img class="clean-img" src="img/mastodon.webp">
+      <img class="clean-img" src="img/github_white.webp">
+      <img class="clean-img" src="img/linkedin.webp">
+    </h5>
+   </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     1. FRAMING
+     ============================================================ -->
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">Qt Bridges is <i class="qt-neon">a new door</i></h2>
+  <h2 class="r-fit-text">into the ecosystem.</h2>
+  <p class="x80 fragment">But this session is about <i class="qt-lemon">different ones</i></p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Where Qt Bridges <i class="qt-neon">stands</i></h3>
+  <div class="columns c60-40 v-center">
+   <div>
+    <ul class="x80">
+      <li>The first phase: <b>Rust</b> and <b>C#</b> (TP)</li>
+      <li>QML owns the UI, your language owns the logic</li>
+    </ul>
+   </div>
+   <div>
+    <div>
+      <img class="w40" src="img/rust_logo_white.webp"/>
+      <img class="w40" src="img/csharp_logo.svg"/>
+    </div>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Where Qt Bridges <i class="qt-neon">could be</i></h3>
+  <div class="columns c4 v-center">
+    <div><img style="width: 40%" src="img/logo_java.svg"/></div>
+    <div><img style="width: 40%" src="img/logo_kotlin.svg"/></div>
+    <div><img style="width: 80%" src="img/logo_swift.svg"/></div>
+    <div><img style="width: 40%" src="img/python.svg"/></div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2>The questions for <i class="qt-neon">this room</i></h2>
+  <ul class="x80">
+    <li>Which <i class="qt-lemon">other languages</i> deserve a place in the Qt ecosystem?</li>
+    <li>A <i class="qt-mandarin">a binding, a bridge</i> or something else?</li>
+    <li>How can <strike style="text-decoration-thickness: 8px; text-decoration-color: red;">&nbsp;Qt&nbsp;</strike> you <i class="qt-neon">help</i>?</li>
+  </ul>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>What is in the <i class="qt-neon">Qt 5 meta-repository</i>?</h3>
+  <div class="barchart x50">
+    <div class="row"><span class="lang">C++</span><span class="track"><span class="bar" style="width: 100.00%"></span></span><span class="val">3,725,072</span></div>
+    <div class="row"><span class="lang">C/C++ Header</span><span class="track"><span class="bar" style="width: 31.64%"></span></span><span class="val">1,178,481</span></div>
+    <div class="row"><span class="lang">QML</span><span class="track"><span class="bar" style="width: 22.93%"></span></span><span class="val">854,030</span></div>
+    <div class="row"><span class="lang">JavaScript</span><span class="track"><span class="bar" style="width: 16.66%"></span></span><span class="val">620,581</span></div>
+    <div class="row"><span class="lang">CMake</span><span class="track"><span class="bar" style="width: 6.31%"></span></span><span class="val">235,080</span></div>
+    <div class="row"><span class="lang">Objective-C++</span><span class="track"><span class="bar" style="width: 2.06%"></span></span><span class="val">76,788</span></div>
+    <div class="row"><span class="lang">Perl</span><span class="track"><span class="bar" style="width: 0.83%"></span></span><span class="val">30,817</span></div>
+    <div class="row"><span class="lang">GLSL</span><span class="track"><span class="bar" style="width: 0.80%"></span></span><span class="val">29,833</span></div>
+    <div class="row"><span class="lang">Python</span><span class="track"><span class="bar hi" style="width: 0.67%"></span></span><span class="val">24,815</span></div>
+    <div class="row"><span class="lang">Bourne Shell</span><span class="track"><span class="bar" style="width: 0.64%"></span></span><span class="val">23,918</span></div>
+    <div class="row"><span class="lang">Java</span><span class="track"><span class="bar hi" style="width: 0.57%"></span></span><span class="val">21,347</span></div>
+    <div class="row"><span class="lang">Go</span><span class="track"><span class="bar hi" style="width: 0.40%"></span></span><span class="val">5,502</span></div>
+    <div class="row"><span class="lang">Kotlin</span><span class="track"><span class="bar hi" style="width: 0.40%"></span></span><span class="val">355</span></div>
+    <div class="row"><span class="lang">Swift</span><span class="track"><span class="bar hi" style="width: 0.40%"></span></span><span class="val">186</span></div>
+  </div>
+  <p class="x40">Lines of code with <code>cloc</code>, 6.8M in total, <code>3rdparty</code> excluded. Highlighted: languages from the watch list or the Qt Bridges candidates.</p>
+  <p class="x40"><i class="rust-red">Skipped:</i> HTML, XML, Markdown, CSS, Text, JSON, SVG, YAML, TOML, XSLT, XSD, diff, INI, CSV, Qt Linguist, XML (Qt/GTK), Qt Project, Mustache, ProGuard, Protocol Buffers, DTD, PO File, JSON5, PlantUML, IDL, Properties, Windows Resource File, Windows Module Definition, ANTLR Grammar, lex, reStructuredText</p>
+</section>
+
+<!-- ============================================================
+     2. SIGNALS: WHAT IS HAPPENING OUTSIDE
+     ============================================================ -->
+
+<section class="slide-black" data-transition="fade-in fade-out">
+  <h1 class="r-fit-text">There have been a <i class="qt-neon">few signals</i>
+      already</h1>
+  <p class="x80"><u>Three</u> from outside Qt, <u>three</u> from inside.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Signals from <i class="qt-neon">outside</i> Qt</h3>
+  <div class="columns c3 x60">
+    <div class="card red">
+        <h2>Python is <u>being rebuilt</u> in Rust</h2>
+      <ul>
+        <li><b>ruff</b>, <b>uv</b>, <b>pydantic-core</b>, <b>polars</b>&hellip;</li>
+        <li>Users still write <code>pip install</code> and never notice the language</li>
+      </ul>
+    </div>
+    <div class="card zig fragment">
+        <h2>Zig in <u>getting serious</u></h2>
+      <ul>
+        <li><b>Ghostty</b>, <b>Bun</b>, <b>TigerBeetle</b></li>
+        <li>Zig 0.16 (April 2026): still pre-1.0</li>
+      </ul>
+    </div>
+    <div class="card fragment">
+        <h2>Go to <u>Rust rewrites</u></h2>
+      <ul>
+        <li><b>Discord</b> services, <b>InfluxDB</b> 3</li>
+        <li>Teams move when the pain is high enough</li>
+      </ul>
+    </div>
+  </div>
+  <p class="x60 fragment"><i class="qt-lemon">Lesson</i>: adoption wins when the new language is
+     <i class="qt-neon">invisible at the boundary</i>, and a framework that
+     talks to <i>one</i> language is great.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Signals from <i class="qt-neon">inside</i> Qt</h3>
+  <div class="columns c3 x60">
+    <div class="card swift">
+      <h2>Swift, from two sides</h2>
+      <ul>
+        <li>Swift annotations in the Qt headers</li>
+        <li><a href="https://github.com/torarnv/qt-swift">qt-swift</a> imports every Qt 6 module</li>
+        <li>Swift C++ interop is an official workgroup</li>
+      </ul>
+    </div>
+    <div class="card red fragment">
+      <h2>Rust prototypes</h2>
+      <ul>
+        <li>Discussions about <i>new prototypes</i> in Rust</li>
+        <li>An implementation language, not a binding for users</li>
+        <li>Different needs: ABI, build, packaging</li>
+      </ul>
+    </div>
+    <div class="card violet fragment">
+      <h2>Chromium needs Rust</h2>
+      <ul>
+        <li>So <b>QtWebEngine</b> does too</li>
+        <li>It <i>lands in our CI</i> as a build dependency</li>
+      </ul>
+    </div>
+  </div>
+  <p class="x60 fragment">The quietest way a language enters an ecosystem is <i class="qt-neon">through the build</i>.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>What <i class="rust-red">ruff</i> and <i class="rust-red">uv</i> actually did</h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <ul class="x70">
+      <li>Picked <b>command line tools</b>, not the interpreter</li>
+      <li>Kept the <i class="qt-neon">same interface</i> and the same files in and out</li>
+      <li>Won on <b>speed</b> first, then on one binary to install</li>
+      <li>Contributors came <i class="qt-lemon">from the Rust community</i></li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x50"><code class="bash" data-trim data-noescape>
+    $ pip install flake8 isort pyupgrade ...
+    $ flake8 .          # seconds
+
+    $ pip install ruff
+    $ ruff check .      # milliseconds
+    </code></pre>
+   </div>
+  </div>
+  <p class="x60 fragment">Qt ships a <i class="qt-mandarin">whole family</i> of exactly this kind of tool.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Which Qt tools would be the <i class="qt-neon">first candidates</i>?</h3>
+  <table class="x40">
+    <thead><tr><th>Tool</th><th>Job</th><th>Why it is a candidate</th><th>Difficulty</th></tr></thead>
+    <tbody>
+      <tr><td><code>rcc</code></td><td>Compiles resources into C++</td><td>Files in, source out; no Qt types needed</td><td class="yes">low</td></tr>
+      <tr><td><code>lrelease</code>, <code>lupdate</code></td><td>Translations</td><td>Parsing and file formats</td><td class="yes">low to medium</td></tr>
+      <tr><td><code>qmlformat</code>, <code>qmllint</code></td><td>QML style and
+              checks</td><td>Needs a QML parser (exists as a separate component)</td><td class="part">medium</td></tr>
+      <tr><td><code>windeployqt</code>, <code>macdeployqt</code></td><td>Packaging</td><td>Mostly file and process work</td><td class="yes">low</td></tr>
+      <tr><td><code>uic</code></td><td>Forms to C++</td><td>XML in, source out</td><td class="part">medium</td></tr>
+      <tr><td><code>qdoc</code></td><td>Documentation generator</td><td>Source
+              comments in, HTML out (Clang to parse C++)</td><td class="part">medium to high</td></tr>
+      <tr><td><code>moc</code></td><td>The meta-object compiler</td><td>The big one: it must understand C++</td><td class="no">high</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Two proofs of concept, and a <i class="qt-neon">safe way</i> to try</h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <ul class="x70">
+      <li><a href="https://git.qt.io/qttools-rs/rcc-rs"><code>rcc-rs</code></a>: the resource compiler, in Rust</li>
+      <li><a href="https://git.qt.io/qttools-rs/qdoc-rs"><code>qdoc-rs</code></a>: the documentation generator, in Rust</li>
+      <li>Early PoCs under <i class="qt-mandarin">qttools-rs</i> on git.qt.io
+          (not official)</li>
+      <li>Build the Rust tool <b>beside</b> the C++ one, never instead, and compare the output <i class="qt-lemon">byte for byte</i></li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x50"><code class="bash" data-trim data-noescape>
+    for f in $(find . -name '*.qrc'); do
+      rcc    "$f" -o /tmp/cpp.cpp
+      rcc-rs "$f" -o /tmp/rs.cpp
+      cmp /tmp/cpp.cpp /tmp/rs.cpp || echo "DIFF $f"
+    done
+    </code></pre>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Why this is <i class="qt-lemon">different</i> from Qt Bridges</h3>
+  <div class="columns c50-50">
+   <div class="card neon">
+     <h4>The upside</h4>
+     <ul>
+       <li><b>No ABI need</b>: the tool is a process, not a library</li>
+       <li>Memory safety where Qt <i>parses untrusted input</i></li>
+       <li>A friendly place for Rust contributors to start</li>
+       <li>Qt has done language migrations of its tools before</li>
+     </ul>
+   </div>
+   <div class="card red fragment">
+     <h4>The cost</h4>
+     <ul>
+       <li>Qt's <b>host tools are built first</b>: Rust would become a requirement to bootstrap Qt</li>
+       <li>Distributions, Yocto and offline builds care a lot about that</li>
+       <li>Two implementations to keep in sync during the transition</li>
+       <li>Dependencies: <code>cargo</code> and crates need a supply chain policy</li>
+     </ul>
+   </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3. FIVE DOORS
+     ============================================================ -->
+
+<section class="slide-black" data-transition="fade-in fade-out">
+  <h1 class="r-fit-text">Five doors <i class="qt-neon">into Qt</i></h1>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>A <i class="qt-neon">taxonomy</i> of ways in</h3>
+  <table class="x50">
+    <thead>
+      <tr><th>Door</th><th>What the language gets</th><th>Who pays the maintenance</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b class="qt-lemon">1. Binding</b></td><td>Qt's C++ API, mirrored</td><td>The binding team, forever</td><td>PySide, QtJambi</td></tr>
+      <tr><td><b class="qt-mandarin">2. Bridge</b></td><td>Logic in the language, UI in QML</td><td>A small meta-object boundary</td><td>Qt Bridges, CXX-Qt</td></tr>
+      <tr><td><b class="qt-neon">3. Interop</b></td><td>Call through the language's own FFI</td><td>The language community</td><td>Swift C++ interop, Zig&nbsp;<code>@cImport</code></td></tr>
+      <tr><td><b class="qt-violet">4. Toolchain</b></td><td>A seat in Qt's build and CI</td><td>Qt's own infrastructure</td><td>Rust for QtWebEngine</td></tr>
+      <tr><td><b class="kde-blue">5. Protocol</b></td><td>Talks to a Qt UI over IPC, no FFI needed</td><td>Nobody, mostly</td><td>D-Bus, Qt Remote Objects</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Door 1 and 2: <i class="qt-lemon">binding</i> vs <i class="qt-mandarin">bridge</i></h3>
+  <div class="columns c50-50">
+   <div class="card lemon">
+     <h4>Binding</h4>
+     <ul>
+       <li>Maintenance scales with <b>the size of Qt</b></li>
+       <li>Gives you <i>all</i> of Qt, including Widgets</li>
+       <li>Needs a generator (Shiboken, SWIG&hellip;) and a team</li>
+       <li>Many fell behind: <a
+                            href="https://wiki.qt.io/Language_Bindings">wiki.qt.io/Language_Bindings</a></li>
+     </ul>
+   </div>
+   <div class="card mandarin fragment">
+     <h4>Bridge</h4>
+     <ul>
+       <li>Maintenance scales with <b>the meta-object boundary</b></li>
+       <li>Gives you QML and Qt Quick, not every class</li>
+       <li>Needs good metadata in the host language</li>
+       <li>Nature of the design: some use cases are out of scope</li>
+     </ul>
+   </div>
+  </div>
+  <p class="x60 fragment">Both need <i class="qt-neon">someone paid or
+      devoted</i> to keep them alive.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Door 3: <i class="qt-neon">Interop</i>, let the language come to us</h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <ul class="x70">
+      <li>Some languages are built <b>around</b> talking to C and C++</li>
+      <li>Qt gets better by being <i class="qt-lemon">easier to consume</i>, not by writing the adapter</li>
+      <li>What helps: annotations, stable headers, machine readable API descriptions</li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x50"><code class="zig" data-trim data-noescape>
+    // Zig: headers become declarations
+    const c = @cImport({
+        @cInclude("qt_shim.h");
+    });
+
+    pub fn main() void {
+        const app = c.qapp_new();
+        defer c.qapp_free(app);
+        _ = c.qapp_exec(app);
+    }
+    </code></pre>
+    <p class="x40">Illustrative: <code>qt_shim.h</code> is a hypothetical C shim, see the next slides.</p>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>The missing piece: a <i class="qt-neon">C ABI</i> for the meta-object system</h3>
+  <ul class="x70">
+    <li>Zig, Go, Odin, Nim, Crystal, Gleam (via NIFs), Swift, C#, Java&hellip; <b>all can call C</b></li>
+    <li>None of them can call C++ <i class="qt-lemon">templates, overloads and virtuals</i> in a stable way</li>
+    <li>Every project today writes its own shim: <i class="qt-mandarin">miqt</i> for Go, <i class="qt-mandarin">cxx-qt</i> for Rust, bespoke ones elsewhere</li>
+  </ul>
+  <p class="x60 fragment">A tiny, <i class="qt-neon">officially stable C surface</i> for registering types,
+     properties, signals and slots with the QML engine would be a force multiplier.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>A sketch of the <i class="qt-neon">C surface</i></h3>
+  <div class="columns c50-50">
+   <div>
+    <pre class="x40"><code class="c" data-trim data-noescape>
+    /* qt_shim.h: hypothetical, illustrative only */
+    typedef struct QtApp  QtApp;
+    typedef struct QtType QtType;
+
+    QtApp  *qtapp_new(int argc, char **argv);
+    int     qtapp_exec(QtApp *);
+
+    QtType *qttype_begin(const char *qml_name);
+    void    qttype_property(QtType *, const char *name,
+                            int meta_type,
+                            QtGetter, QtSetter,
+                            const char *notify);
+    void    qttype_slot(QtType *, const char *name,
+                        QtSlot fn);
+    int     qttype_register(QtApp *, QtType *,
+                            const char *uri,
+                            int major, int minor);
+    </code></pre>
+   </div>
+   <div>
+    <ul class="x60">
+      <li>Describes <b>exactly what a bridge already generates</b>: name, properties, signals, slots, a callback each</li>
+      <li>Opaque handles and C types only, so there is nothing to break across compilers</li>
+      <li>A bridge generator, a Zig <code>comptime</code> or an Odin hand-binding all <i class="qt-lemon">target the same thing</i></li>
+      <li>It could sit under the existing bridges too</li>
+    </ul>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Door 4 and 5: toolchain and protocol</h3>
+  <div class="columns c50-50">
+   <div class="card violet">
+     <h4>Toolchain citizen</h4>
+     <ul>
+       <li>Rust compiler in Qt's CI because of QtWebEngine</li>
+       <li>Question: is this the <i>precedent</i> for other languages in the build?</li>
+       <li>Cost: provisioning, reproducibility, license and supply chain review</li>
+     </ul>
+   </div>
+   <div class="card neon fragment">
+     <h4>Protocol</h4>
+     <ul>
+       <li>The language never touches Qt: a Qt Quick front end talks to it over a socket, D-Bus or Qt Remote Objects</li>
+       <li>Works for <i>any</i> language today, with no Qt work at all</li>
+       <li>Cost: latency, two processes, schema discipline</li>
+     </ul>
+   </div>
+  </div>
+  <p class="x60 fragment">Protocol is underrated: great for Elixir, Gleam and Go back ends, where the runtime is the point.</p>
+</section>
+
+<!-- ============================================================
+     MOC AND REFLECTION
+     ============================================================ -->
+
+<section class="slide-black" data-transition="fade-in fade-out">
+  <h1 class="r-fit-text">What if <i class="qt-neon">moc</i> goes away?</h1>
+  <p class="x80">C++26 reflection and the meta-object boundary</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>C++26 <i class="qt-neon">reflection</i>: what is real today</h3>
+  <ul class="x70">
+    <li>Static reflection (P2996 + P3394) is part of <b>C++26</b>: <code>^^T</code>, <code>std::meta</code>, annotations <code>[[=&nbsp;...]]</code></li>
+    <li><b>GCC 16</b> has a partial implementation with <code>-std=c++26 -freflection</code></li>
+    <li>Mainline <i class="red">Clang and MSVC</i>: no production-ready support (Bloomberg has Clang fork 2996)</li>
+    <li>Reflection help generate new declarations or types in supported contexts (Cannot add data-members, or code injection)</li>
+  </ul>
+  <p class="x60 fragment"><i class="qt-lemon">Qt supports all three compilers</i>, so moc cannot go away soon. The question is the direction.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>First steps <i class="qt-neon">inside Qt</i></h3>
+  <div class="columns c50-50">
+   <div>
+    <ul class="x60">
+      <li><b>QRangeModel</b> (blog post, January 2026): a hackathon prototype
+          that was made official</li>
+      <li>Plain structs become item-view models, with no <code>Q_GADGET</code>: member names become roles</li>
+      <li>Can the compiler do <i class="qt-lemon">much of what moc does</i>?</li>
+      <li>The hard part named there: the <code>signals:</code> and <code>slots:</code> blocks</li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x50"><code class="cpp" data-trim data-noescape>
+    // from the QRangeModel post
+    static consteval auto count()
+    {
+      constexpr auto ctx =
+        std::meta::access_context::current();
+      return nonstatic_data_members_of(
+                 ^^T, ctx).size();
+    }
+    </code></pre>
+    <p class="x40">Source: <a href="https://www.qt.io/blog/c26-reflection-qrangemodel">qt.io/blog/c26-reflection-qrangemodel</a></p>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>And a community proof of concept: <i class="qt-neon">reflect-moc</i></h3>
+  <div class="columns c50-50">
+   <div>
+    <ul class="x60">
+      <li>Header-only: builds a <b>stock <code>QMetaObject</code></b> from reflection, no <code>moc</code> run</li>
+      <li>Tested on GCC 16.2 and Qt 6.10; four Qt examples match moc's output</li>
+      <li>Signals become <i>data members</i>, because reflection cannot add functions</li>
+      <li><i class="red">Missing</i>: <code>QML_ELEMENT</code>, <code>Q_GADGET</code>, <code>BINDABLE</code>; GCC only</li>
+    </ul>
+    <p class="x40">Experimental, third party: <a href="https://github.com/wrocpp/reflect-moc">github.com/wrocpp/reflect-moc</a></p>
+   </div>
+   <div>
+    <pre class="x40"><code class="cpp" data-trim data-noescape>
+    class Counter : public QObject {
+      RQT_OBJECT
+      RQT_PROPERTY(int value READ value
+                   WRITE setValue
+                   NOTIFY valueChanged)
+    public:
+      int value() const { return value_; }
+      [[= rqt::slot]] void setValue(int v) {
+        if (v == value_) return;
+        value_ = v;
+        emit valueChanged(v);
+      }
+      [[= rqt::names("value")]]
+      rqt::signal&lt;void(int)&gt; valueChanged;
+    private:
+      int value_ = 0;
+    };
+    </code></pre>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>What a moc-less future <i class="qt-lemon">means</i> for other languages</h3>
+  <ul class="x70">
+    <li>Bindings targets the same <code>QMetaObject</code> table, so how it is <i class="qt-neon">made</i> matters, not only C++</li>
+    <li class="fragment"><b>Good</b>: Compiler-generated metadata could be easier for language bindings to consume.</li>
+    <li class="fragment"><b>Good</b>: A C-style registration API could simplify cross-language integration.</li>
+    <li class="fragment"><i class="rust-red">Risk</i>: Two ways to build a meta-object; bridges and generators must handle both</li>
+    <li class="fragment"><i class="rust-red">Risk</i>: <code>QML_ELEMENT</code> and <code>qmltyperegistrar</code> sit on top of moc output today</li>
+  </ul>
+  <p class="x60 fragment">Reflection is C++ <i class="qt-neon">arriving where Rust, Swift and Zig already are</i>: describe the type, let the compiler do the rest.</p>
+</section>
+
+<!-- ============================================================
+     4. LANGUAGE WATCH
+     ============================================================ -->
+
+<section class="slide-black" data-transition="fade-in fade-out">
+  <h1 class="r-fit-text">The <i class="qt-neon">language</i> watch</h1>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Who is on the <i class="qt-neon">watch list</i>?</h3>
+  <div class="columns c4">
+    <div class="card swift"><h4>Swift</h4>Safe, with native C++ interop</div>
+    <div class="card zig"><h4>Zig</h4>A better C, with comptime</div>
+    <div class="card gleam"><h4>Gleam</h4>Typed functional, BEAM and JS</div>
+    <div class="card carbon"><h4>Carbon</h4>An experimental successor to C++</div>
+  </div>
+  <div class="columns c4" style="margin-top: 0.6em;">
+    <div class="card mojo"><h4>Mojo</h4>Python-flavoured, GPU-first</div>
+    <div class="card"><h4>V</h4>Simple, compiles to C</div>
+    <div class="card"><h4>Odin</h4>Data-oriented C alternative</div>
+    <div class="card"><h4>Goose</h4>Memory-safe, compiles to C</div>
+  </div>
+  <p class="x50 fragment">&hellip;and a long tail: Go, Nim, Crystal, D, Dart, Roc, Hylo, cppfront</p>
+</section>
+
+<!-- Swift -->
+<section class="slide-black" data-transition="fade-in fade-out">
+  <img style="width: 30%;" src="img/logo_swift.svg" />
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="swift-orange">qt-swift</i>: Qt's C++ API, <i class="qt-neon">imported</i>, not mirrored</h3>
+  <div class="columns c50-50">
+   <div>
+    <ul class="x60">
+      <li>Repository: <a href="https://github.com/torarnv/qt-swift">github.com/torarnv/qt-swift</a>, Qt copyright, LGPL-3.0 or commercial</li>
+      <li>A Swift package: <code>import QtWidgets</code>, <code>import QtQuick</code>&hellip; for <b>every installed Qt 6 module</b></li>
+      <li>A <b>SwiftPM build tool plugin</b> generates a Swift module per Qt module, on top of Swift's C++ interop</li>
+      <li>Qt 6.8+, Swift 6.4+ (nightly preferred), macOS and Linux</li>
+    </ul>
+   </div>
+   <div class="fragment">
+    <pre class="x50"><code class="swift" data-trim data-noescape>
+    import QtWidgets
+
+    @main
+    struct HelloWidgets: QtApplication {
+        init() {
+            let title: QString = "Hello, Qt!"
+            let widget = QWidget()
+            widget.setWindowTitle(title)
+            widget.resize(400, 300)
+            widget.show()
+        }
+    }
+    </code></pre>
+    <p class="x40">Adapted from <code>Examples/HelloWidgets</code>.</p>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="swift-orange">qt-swift</i>: what it tells us</h3>
+  <div class="columns c50-50">
+   <div>
+    <h4 class="qt-neon">Encouraging</h4>
+    <ul class="x60">
+      <li>It is <b>door 3</b> in practice: the compiler does the mirroring, so <i>nobody hand-maintains</i> the API surface</li>
+      <li>The maintenance surface moves to Swift's C++ importer, which Apple and the community already maintain</li>
+      <li>Qt types (<code>QString</code> to <code>String</code>) are usable like Swift ones</li>
+    </ul>
+   </div>
+   <div class="fragment">
+    <h4 class="red">Open questions</h4>
+    <ul class="x60">
+      <li>Early: needs Swift 6.4 nightly, works around importer bugs (upcasts, default arguments) with <code>unsafeBitCast</code></li>
+      <li>README and examples show <b>no QObject subclassing, signals, slots or moc</b>: Swift types are not yet <i>visible to QML</i></li>
+      <li>Linux and macOS only for now</li>
+    </ul>
+   </div>
+  </div>
+  <p class="x60 fragment">The missing half is a <i class="qt-mandarin">bridge</i>: Swift types exposed to QML. Annotations in the headers and the
+     reflection work both help here. It is the natural <i class="qt-neon">next phase</i>.</p>
+</section>
+
+<!-- Zig -->
+<section class="slide-black" data-transition="fade-in fade-out">
+  <img style="width: 35%;" src="img/logo_zig.svg" />
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="zig-yellow">Zig</i>: why people care</h3>
+  <div class="columns c60-40 v-center">
+   <div>
+    <ul class="x70">
+      <li><b>No hidden control flow</b>, no hidden allocations</li>
+      <li><b>comptime</b>: generics and reflection in the same language</li>
+      <li><code>zig cc</code> and <code>zig c++</code>: a drop-in <i class="qt-neon">cross compiler</i> for C and C++</li>
+      <li>Reads C headers directly: <code>@cImport</code></li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x50"><code class="zig" data-trim data-noescape>
+    const std = @import("std");
+
+    pub fn main() void {
+        std.debug.print("Hello!\n", .{});
+    }
+    </code></pre>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="zig-yellow">Zig</i> and Qt: the honest view</h3>
+  <div class="columns c50-50">
+   <div>
+    <h4 class="qt-neon">Opportunities</h4>
+    <ul class="x60">
+      <li><code>comptime</code> can <i>generate</i> the QML registration from a struct: bridge-like ergonomics with no macro system</li>
+      <li><code>zig c++</code> as a CI cross compiler for Qt itself (an experiment worth running)</li>
+      <li>Fits embedded and small-footprint use cases</li>
+    </ul>
+   </div>
+   <div>
+    <h4 class="red">Blockers</h4>
+    <ul class="x60">
+      <li><b>C only</b>: no C++ interop, so a C shim is mandatory</li>
+      <li>Pre-1.0: the language and std change on every release</li>
+      <li>No <code>moc</code>-like step, so the meta-object has to be built by hand</li>
+    </ul>
+   </div>
+  </div>
+  <p class="x60 fragment">Verdict: <i class="zig-yellow">a community project</i> if we provide the C surface.</p>
+</section>
+
+<!-- Gleam -->
+<section class="slide-pink" data-transition="fade-in fade-out">
+  <img style="width: 25%;" src="img/logo_gleam.svg" />
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="gleam-pink">Gleam</i>: friendly, and a <i class="qt-neon">protocol</i> fit</h3>
+  <div class="columns c60-40 v-center">
+   <div>
+    <ul class="x60">
+      <li>Statically typed, functional, <b>friendly</b> compiler errors; runs on the <b>BEAM</b> <i>and</i> compiles to JavaScript</li>
+      <li>v1.0 in <b>March 2024</b>; v1.19 (<b>Oct 2026</b>) no longer emits
+          Erlang source: feeds Erlang abstract forms to the compiler (faster
+          builds and stacktraces that point at Gleam code)</li>
+      <li>BEAM processes and Qt signals share a <i>message passing</i> mindset</li>
+      <li>But no FFI of its own (NIFs or ports) and no macros or reflection: nothing to generate a bridge from</li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x50"><code class="gleam" data-trim data-noescape>
+    import gleam/io
+
+    pub fn main() {
+      io.println("Hello, Qt!")
+    }
+    </code></pre>
+   </div>
+  </div>
+  <p class="x60 fragment">Verdict: <i class="gleam-pink">protocol first</i> (Gleam back end, QML front end). A bridge is the wrong shape here.</p>
+</section>
+
+<!-- Carbon -->
+<section class="slide-gray" data-transition="fade-in fade-out">
+  <img style="width: 20%;" src="img/logo_carbon.png" />
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="carbon-light">Carbon</i>: the C++ successor attempt</h3>
+  <ul class="x70">
+    <li>Started at Google, <b>experimental</b>, explicitly <i class="red">not ready for use</i></li>
+    <li>Goal: bidirectional C++ interop good enough to migrate <i class="qt-lemon">incrementally</i></li>
+    <li>The roadmap has been about a working toolchain with C++ interop; there is no 1.0</li>
+  </ul>
+  <p class="x60 fragment">Qt is <i class="qt-neon">exactly</i> the kind of codebase Carbon's story is written for:
+     huge, templated, macro-heavy, <code>moc</code>-processed C++.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="carbon-light">Carbon</i>: what the code looks like</h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <pre class="x50"><code class="rust" data-trim data-noescape>
+    package Sample api;
+
+    class Counter {
+      var value: i32;
+
+      fn Add[addr self: Self*](n: i32) {
+        self->value += n;
+      }
+    }
+
+    fn Main() -> i32 {
+      var c: Counter = {.value = 0};
+      c.Add(42);
+      return c.value;
+    }
+    </code></pre>
+   </div>
+   <div>
+    <ul class="x60">
+      <li>Rust-like declarations, C++-like control flow</li>
+      <li>The headline feature is <code>import Cpp</code> of existing headers</li>
+      <li>For Qt that would mean <code>QObject</code>, templates <i>and</i> <code>Q_OBJECT</code> macros</li>
+    </ul>
+    <p class="x40">Approximate: Carbon's syntax is still changing.</p>
+   </div>
+  </div>
+  <p class="x60 fragment">Verdict: <i class="qt-neon">watch, do not bet</i>, and the same for <i class="carbon-light">cppfront</i>. Keep Qt headers clean, and tell the Carbon team how <code>Q_OBJECT</code> breaks things.</p>
+</section>
+
+<!-- Mojo -->
+<section class="slide-black" data-transition="fade-in fade-out">
+  <img style="width: 20%;" src="img/logo_mojo.svg" />
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="mojo-orange">Mojo</i>: the news is <i class="qt-neon">recent</i></h3>
+  <ul class="x70">
+    <li><b>1.0</b> released in <b>August 2026</b>, and the compiler was open sourced under Apache 2.0</li>
+    <li>Modular is now part of <b>Qualcomm</b>, a name that Qt knows well</li>
+    <li>Python-like syntax, but <i class="qt-lemon">no longer promising to be a Python superset</i></li>
+    <li>Designed for GPU and accelerator programming first</li>
+  </ul>
+  <p class="x60 fragment">Mojo can import Python modules, so <i class="python-yellow">PySide</i> is
+     <i class="qt-neon">reachable in principle</i> today. </p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="mojo-orange">Mojo</i>: what the code looks like</h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <pre class="x50"><code class="python" data-trim data-noescape>
+    struct Point:
+        var x: Float64
+        var y: Float64
+
+        def __init__(out self, x: Float64, y: Float64):
+            self.x = x
+            self.y = y
+
+        def scale(mut self, k: Float64):
+            self.x *= k
+            self.y *= k
+
+    def main():
+        var p = Point(1.5, 2.0)
+        p.scale(2.0)
+        print(p.x, p.y)
+    </code></pre>
+    <p class="x40">Looks like Python, but <code>struct</code>, <code>var</code> and <code>out</code>/<code>mut</code> argument conventions are not valid Python: this is compiled, statically typed code.</p>
+   </div>
+   <div>
+    <pre class="x50"><code class="python" data-trim data-noescape>
+    from python import Python
+
+    def main():
+        var qt = Python.import_module(
+            "PySide6.QtCore")
+        print(qt.__version__)
+    </code></pre>
+    <p class="x40">Mojo's documented way to use Python modules. I have <i>not</i> tried this with PySide6.</p>
+   </div>
+  </div>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Under Mojo: <a href="https://mlir.llvm.org/"><i class="mojo-orange">MLIR</i></a>, and what Qt could learn</h3>
+  <div class="columns c50-50">
+   <div class="card mojo">
+     <h4>MLIR</h4>
+     <ul class="x60">
+       <li>A <b>framework for building compilers</b>: you define <i>dialects</i> (<code>arith</code>, <code>gpu</code>, <code>spirv</code>&hellip;)</li>
+       <li>Programs are lowered step by step down to LLVM IR</li>
+       <li>Used by Mojo and by machine-learning compilers</li>
+     </ul>
+   </div>
+   <div class="card carbon">
+     <h4>Cranelift</h4>
+     <ul class="x60">
+       <li>A <b>fast, small code generator</b> written in Rust</li>
+       <li>A compiler backend centered on CLIF</li>
+       <li>Core of Wasmtime, and an optional Rust backend</li>
+       <li>Trades some code quality for compile time</li>
+     </ul>
+   </div>
+  </div>
+  <p class="x60 fragment">Qt’s QML and shader pipelines offer precedents for staged compilation, but cross-language bindings still need explicit integration.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>The same function, <i class="qt-neon">three IRs</i></h3>
+  <div class="columns c3">
+   <div>
+    <h4 class="x60 mojo-orange">MLIR</h4>
+    <pre class="x40"><code class="mlir" data-trim data-noescape>
+    func.func @add(%a: i32,
+                   %b: i32) -> i32 {
+      %0 = arith.addi %a, %b : i32
+      func.return %0 : i32
+    }
+    </code></pre>
+    <p class="x40">The dialect is part of each operation name.</p>
+   </div>
+   <div>
+    <h4 class="x60 qt-lemon">LLVM IR</h4>
+    <pre class="x40"><code class="llvm" data-trim data-noescape>
+    define i32 @add(i32 %a, i32 %b) {
+    entry:
+      %0 = add i32 %a, %b
+      ret i32 %0
+    }
+    </code></pre>
+    <p class="x40">One fixed, low-level IR. MLIR lowers to it.</p>
+   </div>
+   <div>
+    <h4 class="x60 rust-red">Cranelift (CLIF)</h4>
+    <pre class="x40"><code class="plaintext" data-trim data-noescape>
+    function %add(i32, i32) -> i32 {
+    block0(v0: i32, v1: i32):
+        v2 = iadd v0, v1
+        return v2
+    }
+    </code></pre>
+    <p class="x40">Its own small IR, straight to machine code. No LLVM.</p>
+   </div>
+  </div>
+  <p class="x60 fragment">For one <code>add</code> they look alike: the difference shows up with <i class="qt-lemon">tensors, GPUs and compile time</i>, not with integers.</p>
+</section>
+
+<!-- V -->
+<section class="slide-black" data-transition="fade-in fade-out">
+  <h1 class="r-fit-text"><i class="qt-neon">V</i>, <i class="zig-yellow">Odin</i> and Goose</h1>
+  <p>Three C-shaped languages, three different bets</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3><i class="qt-neon">V</i> (Vlang): simple, and <i class="red">not a priority</i></h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <ul class="x60">
+      <li>Small, fast to compile, <b>compiles to C</b> by default</li>
+      <li>Direct C calls with <code>fn C.name</code>, no binding generator</li>
+      <li>Still <i class="red">pre-1.0</i>, with weak metadata to describe a QObject, and its own UI toolkit</li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x50"><code class="go" data-trim data-noescape>
+    #flag -lm
+    #include &lt;math.h&gt;
+
+    fn C.sqrt(x f64) f64
+
+    fn main() {
+        name := 'Qt'
+        println('Hello, ${name}!')
+        println(C.sqrt(2.0))
+    }
+    </code></pre>
+   </div>
+  </div>
+  <p class="x60 fragment">Verdict: <i class="qt-neon">nothing to do except publish the C surface</i> and let anyone try.</p>
+</section>
+
+<!-- Odin -->
+<section data-transition="fade-in fade-out">
+  <h3><i class="zig-yellow">Odin</i>: a C alternative, <i class="qt-neon">a good community project</i></h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <ul class="x60">
+      <li>Data-oriented, no classes or exceptions, manual memory with an <b>implicit allocator context</b></li>
+      <li><code>foreign import</code> links a C library but <i>cannot parse headers</i>; a <b><code>vendor</code></b> collection ships SDL, raylib, Vulkan&hellip;</li>
+      <li>Stable and small, but C ABI only, no reflection, a single main author</li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x40"><code class="go" data-trim data-noescape>
+    package main
+
+    foreign import qtshim "system:qtshim"
+
+    @(default_calling_convention = "c")
+    foreign qtshim {
+        qtapp_new  :: proc(argc: i32,
+                           argv: [^]cstring) -> rawptr ---
+        qtapp_exec :: proc(app: rawptr) -> i32 ---
+    }
+
+    main :: proc() {
+        app := qtapp_new(0, nil)
+        _ = qtapp_exec(app)
+    }
+    </code></pre>
+    <p class="x40">Illustrative: <code>qtshim</code> is the hypothetical C surface.</p>
+   </div>
+  </div>
+  <p class="x60 fragment">Verdict: <i class="zig-yellow">friendly tier</i>. With the C surface, an Odin <code>vendor:qt</code> is a weekend of someone else's work.</p>
+</section>
+
+<!-- Goose -->
+<section data-transition="fade-in fade-out">
+  <h3><i class="qt-lemon">Goose</i>: safe, <i class="qt-neon">compiles to C</i>, not actionable</h3>
+  <div class="columns c50-50 v-center">
+   <div>
+    <ul class="x60">
+      <li>By <b>Wouter van Oortmerssen</b> (FlatBuffers, Lobster); see <a href="https://aardappel.github.io/goose/">aardappel.github.io/goose</a></li>
+      <li>Memory safe with <b>no GC, no heap allocator, no lifetime annotations</b>; emits one C file and calls C with <code>extern fn</code></li>
+      <li>Experimental: the README says the compiler was written almost entirely with AI.</li>
+    </ul>
+   </div>
+   <div>
+    <pre class="x40"><code class="rust" data-trim data-noescape>
+    // calling C
+    extern fn hypot(x: f64, y: f64) -> f64;
+
+    // a generic function
+    fn twice(x) { x + x }
+
+    // a growable array of structs
+    var items: Item[&gt;..] = [];
+    </code></pre>
+    <p class="x40">Snippets from the project page.</p>
+   </div>
+  </div>
+  <p class="x60 fragment">Verdict: <i class="qt-lemon">watch</i>. Emitting C means the C surface is the whole interop story.</p>
+</section>
+
+<!-- The long tail -->
+<section data-transition="fade-in fade-out">
+  <h3>The <i class="qt-mandarin">long tail</i></h3>
+  <table class="x50">
+    <thead><tr><th>Language</th><th>Why it comes up</th><th>Qt angle</th></tr></thead>
+    <tbody>
+      <tr><td><b class="go-cyan">Go</b></td><td>Cloud, CLI tools, huge hiring pool</td><td>Community bindings exist (e.g. miqt); cgo cost and GC/event-loop mismatch</td></tr>
+      <tr><td><b>Nim</b></td><td>Python-like, compiles to C or C++</td><td>Compiling to C++ is a real interop advantage</td></tr>
+      <tr><td><b>D</b></td><td>Long history with C++ interop</td><td>dqt is the cautionary tale</td></tr>
+      <tr><td><b>Dart</b></td><td>Flutter is a direct neighbour</td><td>Competitor and potential consumer of our back end</td></tr>
+      <tr><td><b>Hylo, Roc, Vale</b></td><td>New ideas on safety and value semantics</td><td>Too early; only worth following</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Already-in-the-room languages, outside Bridges phase 1 -->
+<!-- ============================================================
+     5. SCORECARD
+     ============================================================ -->
+
+<section data-transition="fade-in fade-out">
+  <h3>My (subjective) <i class="qt-neon">scorecard</i></h3>
+  <table class="x40" style="font-size: 46%;">
+    <thead>
+      <tr><th>Language</th><th>C / C++ interop</th><th>Metadata for QML</th><th>Stability</th><th>Qt story today</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b class="python-yellow">Python</b></td><td class="part">Shiboken</td><td class="yes">generators</td><td class="yes">stable</td><td class="yes">Qt for Python, Bridges</td></tr>
+      <tr><td><b class="rust-red">Rust</b></td><td class="part">CXX</td><td class="yes">proc macros</td><td class="yes">stable</td><td class="yes">Bridges, CXX-Qt</td></tr>
+      <tr><td><b class="csharp-light-purple">C#</b></td><td class="part">C via P/Invoke</td><td class="yes">attributes, generators</td><td class="yes">stable</td><td class="yes">Bridges</td></tr>
+      <tr><td><b class="swift-orange">Swift</b></td><td class="yes">official C++ interop</td><td class="yes">macros, attributes</td><td class="yes">stable</td><td class="part">annotations, Bridges</td></tr>
+      <tr><td><b>Kotlin / Java</b></td><td class="part">JNI</td><td class="yes">annotations</td><td class="yes">stable</td><td class="part">QtJambi, Bridges</td></tr>
+      <tr><td><b class="go-cyan">Go</b></td><td class="part">C via cgo</td><td class="part">tags, go generate</td><td class="yes">stable</td><td class="part">community bindings</td></tr>
+      <tr><td><b class="zig-yellow">Zig</b></td><td class="part">C only</td><td class="yes">comptime</td><td class="no">pre-1.0</td><td class="part">libqt6zig</td></tr>
+      <tr><td><b class="gleam-pink">Gleam</b></td><td class="no">NIFs and ports</td><td class="no">no macros</td><td class="part">young 1.x</td><td class="no">none</td></tr>
+      <tr><td><b class="carbon-light">Carbon</b></td><td class="part">the whole point, not ready</td><td class="no">unknown</td><td class="no">experimental</td><td class="no">none</td></tr>
+      <tr><td><b class="mojo-orange">Mojo</b></td><td class="part">C and Python</td><td class="part">limited</td><td class="part">1.0 (Aug 2026)</td><td class="part">via Python</td></tr>
+      <tr><td><b class="qt-neon">V</b></td><td class="yes">C, trivially</td><td class="no">weak</td><td class="no">pre-1.0</td><td class="no">none</td></tr>
+      <tr><td><b class="zig-yellow">Odin</b></td><td class="part">C only</td><td class="no">no reflection</td><td class="part">stable, no 1.0</td><td class="no">none</td></tr>
+      <tr><td><b class="qt-lemon">Goose</b></td><td class="part">C via extern fn</td><td class="no">unknown</td><td class="no">experimental</td><td class="no">none</td></tr>
+    </tbody>
+  </table>
+  <p class="x40"><i class="qt-neon">green</i> good fit - <i
+      class="qt-mandarin">orange</i> workable - <i class="rust-red">red</i> gap</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Reading the table</h3>
+  <ul class="x70">
+    <li>Some languages already have a <i class="qt-neon">metadata</i> story: that is why the bridges exist</li>
+    <li>Zig is the surprise: <b>comptime</b> gives it bridge-quality ergonomics, with <i class="red">C-only interop</i> as the single hard blocker</li>
+    <li>Gleam and Carbon do not need a bridge: one needs a <i class="qt-lemon">protocol</i>, the other needs <i class="qt-lemon">time</i></li>
+    <li>V and Odin <i class="qt-mandarin">score on interop and nothing else</i>: great consumers of a C surface, poor candidates for a bridge</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     6. OPPORTUNITIES
+     ============================================================ -->
+
+<section class="slide-black" data-transition="fade-in fade-out">
+  <h1 class="r-fit-text">Where Qt can <i class="qt-neon">act</i></h1>
+  <p>"Cheap" things first</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Six low-cost <i class="qt-neon">moves</i></h3>
+  <ol class="x70">
+    <li><b>A stable C surface</b> for type registration with the QML engine</li>
+    <li><b>Machine-readable API</b> promoted to a contract: <code>metatypes.json</code> and <code>qmltypes</code> as inputs for generators</li>
+    <li><b>Annotations</b> on public headers, following the Swift initiative</li>
+    <li><b>A conformance suite</b>: a small QML app any bridge can implement and run in CI</li>
+    <li><b>A protocol-first recipe</b>: Qt Quick front end plus any back end, documented and tested</li>
+    <li><b>Stay reflection-ready</b>: keep the meta-object description clean enough that moc or a compiler can produce it</li>
+  </ol>
+</section>
+
+<section data-transition="fade-in fade-out">
+<h3>A <i class="qt-lemon">commitment</i> model</h3>
+<table class="x50">
+    <thead><tr><th>Tier</th><th>What Qt commits to</th><th>Candidates</th></tr></thead>
+    <tbody>
+      <tr><td><b class="qt-neon">Official</b></td><td>Maintained and released with Qt</td><td>C++, QML, Python, Bridges: Rust and C#; <i>Qt's own tools could join here</i></td></tr>
+      <tr><td><b class="qt-mandarin">Supported surface</b></td><td>Annotations and docs, no bridge yet</td><td>Swift (qt-swift is the natural base)</td></tr>
+      <tr><td><b class="qt-lemon">Friendly</b></td><td>Stable C surface, metadata, conformance suite</td><td>Zig, Odin, Go, Nim, V: anything with a C FFI</td></tr>
+      <tr><td><b class="qt-violet">Watch</b></td><td>Nothing, except attention, and perhaps opinion?</td><td>Carbon, Mojo, Gleam, Goose, Hylo&hellip;</td></tr>
+    </tbody>
+  </table>
+  <p class="x50 fragment">The top tier is expensive on purpose. The lower tiers let
+     <i class="qt-neon">communities</i> do the expensive part.</p>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h3>Proposed <i class="qt-neon">entry criteria</i></h3>
+  <ul class="x70">
+    <li>A named, active <b>maintainer group</b> that is not "the Qt Company"</li>
+    <li>Real <b>production users</b> of the language on desktop or embedded</li>
+    <li>Passes the <b>conformance suite</b> on Linux, Windows and macOS</li>
+    <li>Uses only the <b>stable, documented surface</b> (no private headers)</li>
+    <li>A <b>release cadence</b> that follows Qt's, or a clear compatibility range</li>
+  </ul>
+  <p class="x60 fragment">Some died from the <i class="qt-lemon">maintenance tail</i>: a new language needs an <i class="qt-mandarin">owner outside Qt</i> before it needs a place inside it.</p>
+</section>
+
+<!-- ============================================================
+     7. DISCUSSION
+     ============================================================ -->
+
+<section data-transition="fade-in fade-out">
+  <h3>Questions for the <i class="qt-neon">room</i></h3>
+  <ol class="x70">
+    <li>Which language would <i class="qt-lemon">you</i> want to write Qt apps in next year?</li>
+    <li>Is a <b>C ABI for the meta-object system</b> worth maintaining?</li>
+    <li>Do the tiers and entry criteria <b>make sense</b>, or are they too heavy?</li>
+    <li>Which Qt <b>tool</b> would you port to Rust first, and what is the bootstrap policy?</li>
+    <li>How should Qt plan for <b>moc and C++26 reflection</b> while Clang and MSVC lag?</li>
+    <li>Who here would <i class="qt-mandarin">volunteer</i> to try Zig, Odin or Go against a C shim?</li>
+  </ol>
+</section>
+
+<section data-transition="fade-in fade-out">
+  <h2 class="r-fit-text">The future of Qt is <i class="qt-neon">polyglot</i></h2>
+  <h2 class="r-fit-text fragment">Qt does not have to <i class="qt-lemon">choose</i> the next language.</h2>
+  <h2 class="r-fit-text fragment">It has to be <i class="qt-lemon">easy to arrive at</i>.</h2>
+</section>
+
+<section data-no-header data-transition="fade-in fade-out" class="full-slide" data-background-image="img/background_cover.svg">
+  <div class="columns c60-40 v-center">
+   <div>
+    <h4>Programming languages in the Qt Ecosystem: beyond Qt Bridges</h4>
+    <p class="x80">
+    <i class="qt-lemon">Cristián</i> Maureira-Fredes<br>
+    <span>@cmaureir</span><br/>
+    <img class="clean-img" src="img/bluesky.webp">
+    <img class="clean-img" src="img/mastodon.webp">
+    <img class="clean-img" src="img/github_white.webp">
+    <img class="clean-img" src="img/linkedin.webp">
+    <hr class="yellow-line"/>
+    <h3>maureira.dev</h3>
+    </p>
+   </div>
+  </div>
+</section>
+
+    </div>
+  </div>
+
+  <!-- Header/footer content copied into the deck by js/deck.js -->
+  <div id="hidden" style="display: none;">
+    <div id="header">
+      <div id="header-left" style="margin-top: 40px; margin-left: 20px; font-size: 12pt;">
+        <img style="width: 80px;" src="img/qt_white.webp" />
+      </div>
+      <div id="header-right"></div>
+      <div id="footer-left">
+        <p style="font-size: 12pt; margin-left: 20px;">
+          Qt Contributors' Summit 2026 |
+          <i class="qt-neon">@cmaureir</i>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/dist/plugin/notes.js"></script>
+  <script src="reveal.js/dist/plugin/markdown.js"></script>
+  <script src="reveal.js/dist/plugin/highlight.js"></script>
+  <script src="js/deck.js"></script>
+</body>
+</html>
